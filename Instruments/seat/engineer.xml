@@ -1,0 +1,51 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>seat-engineer.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/747-200/Models/Liveries", 10,
+   func { print("747-200 livery update (engineer seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <name>AllSeat</name>
+  <object-name>Seat</object-name>
+  <object-name>Boggie</object-name>
+ </animation>
+
+ <animation> 
+  <type>material</type> 
+  <object-name>AllSeat</object-name>
+  <property-base>sim/model/liveryseat/</property-base> 
+  <texture-prop>texture</texture-prop> 
+ </animation> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Seat</object-name>
+  <property>sim/current-view/goal-heading-offset-deg</property>
+  <offset-deg>90</offset-deg>   
+  <condition>
+   <property>systems/seat/engineer</property>
+  </condition>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>gear.ac</path> 
+
+ <animation>
+  <type>rotate</type>
+  <object-name>GearLever</object-name>
+  <property>controls/gear/gear-down</property>
+  <factor>60</factor>
+  <offset-deg>-25</offset-deg>   
+  <center>
+   <x-m>-0.04</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>GearLever</object-name>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+   <command>nasal</command>
+   <script>controls.gearDown(-1)</script>
+   </binding>
+  </action>
+  <action>
+   <button>1</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>controls.gearDown(0)</script>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

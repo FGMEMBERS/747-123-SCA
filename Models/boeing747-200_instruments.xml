@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+
+<!--
+     all panels are 1024x512, i.e. surface must have width/height = 2/1, to keep the scale of instruments.
+
+-->
+
+<PropertyList>
+
+ <!-- ======================================= -->
+ <!-- panel models (X/Y/Z depth/width/height) -->
+ <!-- ======================================= -->
+
+ <!-- AUTOPILOT -->
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-autopilot.xml</path>
+   <bottom-left>
+    <x-m>-19.267</x-m>
+    <y-m>-0.281</y-m>
+    <z-m> 3.023</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.267</x-m>
+    <y-m> 0.229</y-m>
+    <z-m> 3.023</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-19.302</x-m>
+    <y-m>-0.281</y-m>
+    <z-m> 3.268</z-m>
+   </top-left>
+  </panel>
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-autopilot-right.xml</path>
+   <bottom-left>
+    <x-m>-19.267</x-m>
+    <y-m> 0.277</y-m>
+    <z-m> 3.023</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.267</x-m>
+    <y-m> 0.787</y-m>
+    <z-m> 3.023</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-19.302</x-m>
+    <y-m> 0.277</y-m>
+    <z-m> 3.268</z-m>
+   </top-left>
+  </panel>
+
+ <!-- PILOT -->
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-pilot.xml</path>
+   <bottom-left>
+    <x-m>-19.302</x-m>
+    <y-m>-0.581</y-m>
+    <z-m> 2.668</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.302</x-m>
+    <y-m> 0.429</y-m>
+    <z-m> 2.668</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-19.348</x-m>
+    <y-m>-0.581</y-m>
+    <z-m> 3.173</z-m>
+   </top-left>
+  </panel>
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-copilot.xml</path>
+   <bottom-left>
+    <x-m>-19.302</x-m>
+    <y-m> 0.306</y-m>
+    <z-m> 2.668</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.302</x-m>
+    <y-m> 1.316</y-m>
+    <z-m> 2.668</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-19.348</x-m>
+    <y-m> 0.306</y-m>
+    <z-m> 3.173</z-m>
+   </top-left>
+  </panel>
+
+ <!-- OVERHEAD -->
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-overhead.xml</path>
+   <bottom-left>
+    <x-m>-19.280</x-m>
+    <y-m>-0.251</y-m>
+    <z-m> 3.328</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.280</x-m>
+    <y-m> 0.759</y-m>
+    <z-m> 3.328</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-18.775</x-m>
+    <y-m>-0.251</y-m>
+    <z-m> 3.578</z-m>
+   </top-left>
+  </panel>
+
+ <!-- PEDESTAL -->
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-pedestal.xml</path>
+   <bottom-left>
+    <x-m>-18.475</x-m>
+    <y-m>-0.201</y-m>
+    <z-m> 2.623</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-18.475</x-m>
+    <y-m> 0.409</y-m>
+    <z-m> 2.623</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-18.780</x-m>
+    <y-m>-0.201</y-m>
+    <z-m> 2.623</z-m>
+   </top-left>
+  </panel>
+
+ <!-- ENGINEER -->
+
+  <panel>
+   <path>Aircraft/747-200/Panels/747-200-engineer-fuel.xml</path>
+   <bottom-left>
+    <x-m>-17.86</x-m>
+    <y-m> 0.55</y-m>
+    <z-m> 2.78</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-17.36</x-m>
+    <y-m> 0.55</y-m>
+    <z-m> 2.78</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-17.86</x-m>
+    <y-m> 0.59</y-m>
+    <z-m> 3.03</z-m>
+   </top-left>
+  </panel>
+
+
+<!-- =========== -->
+<!-- Instruments -->
+<!-- =========== -->
+
+  <model>
+   <name>Magnetic Compass</name>
+   <path>Aircraft/Instruments-3d/mag-compass.xml</path>
+   <offsets>
+    <x-m>-19.29</x-m>
+    <y-m>0.00</y-m>
+    <z-m>3.38</z-m>
+   </offsets>
+  </model>
+
+<!-- center -->
+
+  <model>
+   <name>AmberCargoDoors</name>
+   <path>Aircraft/747-200/Instruments/warning/amber-cargo-doors.xml</path>
+   <offsets>
+    <x-m>-19.271</x-m>
+    <y-m>-0.0524</y-m>
+    <z-m>3.007</z-m>
+    <pitch-deg>-5.0</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>RedPullUp</name>
+   <path>Aircraft/747-200/Instruments/warning/red-pull-up.xml</path>
+   <offsets>
+    <x-m>-19.271</x-m>
+    <y-m>-0.0138</y-m>
+    <z-m>3.007</z-m>
+    <pitch-deg>-5.0</pitch-deg>
+   </offsets>
+  </model>
+
+  <model>
+   <name>GearLever</name>
+   <path>Aircraft/747-200/Instruments/gear/gear.xml</path>
+   <offsets>
+    <x-m>-19.332</x-m>
+    <y-m>0.202</y-m>
+    <z-m>2.841</z-m>
+   </offsets>
+  </model>
+
+<!-- pedestal -->
+
+  <model>
+   <name>Cylinder</name>
+   <path>Aircraft/747-200/Instruments/pedestal/cylinder.xml</path>
+   <offsets>
+    <x-m>-19.029</x-m>
+    <y-m>0.00</y-m>
+    <z-m>2.599</z-m>
+   </offsets>
+  </model>
+
+<!-- yokes -->
+
+  <model>
+   <name>Captain Yoke</name>
+   <path>Aircraft/747-200/Instruments/yoke/yoke.xml</path>
+   <offsets>
+    <x-m>-19.040</x-m>
+    <y-m>-0.460</y-m>
+    <z-m>2.276</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Copilot Yoke</name>
+   <path>Aircraft/747-200/Instruments/yoke/yoke.xml</path>
+   <offsets>
+    <x-m>-19.040</x-m>
+    <y-m>0.467</y-m>
+    <z-m>2.276</z-m>
+   </offsets>
+  </model>
+
+<!-- seats -->
+
+  <model>
+   <name>Captain Seat</name>
+   <path>Aircraft/747-200/Instruments/seat/captain.xml</path>
+   <offsets>
+    <x-m>-18.680</x-m>
+    <y-m>-0.460</y-m>
+    <z-m>2.263</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Copilot Seat</name>
+   <path>Aircraft/747-200/Instruments/seat/copilot.xml</path>
+   <offsets>
+    <x-m>-18.680</x-m>
+    <y-m>0.467</y-m>
+    <z-m>2.263</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Engineer Seat</name>
+   <path>Aircraft/747-200/Instruments/seat/engineer.xml</path>
+   <offsets>
+    <x-m>-17.603</x-m>
+    <y-m>0.0</y-m>
+    <z-m>2.263</z-m>
+   </offsets>
+  </model>
+
+  <model>
+   <name>Observer Seat</name>
+   <path>Aircraft/747-200/Instruments/seat/observer.xml</path>
+   <offsets>
+    <x-m>-17.269</x-m>
+    <y-m>-1.036</y-m>
+    <z-m>2.263</z-m>
+   </offsets>
+  </model>
+
+</PropertyList>

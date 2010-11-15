@@ -1,0 +1,124 @@
+<?xml version="1.0" ?> 
+
+<PropertyList> 
+ <path>seat.ac</path> 
+
+ <nasal>
+  <load>
+   var livery_update = aircraft.livery_update.new(
+   "Aircraft/747-200/Models/Liveries", 10,
+   func { print("747-200 livery update (captain seat)") });
+  </load>
+
+  <unload>
+   livery_update.stop();
+  </unload>
+ </nasal>
+
+ <animation>
+  <type>select</type>
+  <object-name>CopilotRail</object-name>
+  <condition>
+   <equals>
+    <value>1</value>
+    <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <name>AllSeat</name>
+  <object-name>Seat</object-name>
+  <object-name>LeftArm</object-name>
+  <object-name>RightArm</object-name>
+ </animation>
+
+ <animation> 
+  <type>material</type> 
+  <object-name>AllSeat</object-name>
+  <property-base>sim/model/liveryseat/</property-base> 
+  <texture-prop>texture</texture-prop> 
+ </animation> 
+
+ <animation>
+  <type>translate</type>
+  <object-name>AllSeat</object-name>
+  <property>systems/human/captain/stowe-norm</property>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.6</ind>
+    <dep>0.16</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>0.16</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>AllSeat</object-name>
+  <property>systems/human/captain/stowe-norm</property>
+  <interpolation>
+   <entry>
+    <ind>0.0</ind>
+    <dep>0</dep>
+   </entry>
+   <entry>
+    <ind>0.6</ind>
+    <dep>0.0</dep>
+   </entry>
+   <entry>
+    <ind>1.0</ind>
+    <dep>-0.12</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- raises the armrest to reach the pedestal -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RightArm</object-name>
+  <offset-deg>80</offset-deg>   
+  <condition>
+   <property>systems/seat/captain</property>
+  </condition>
+  <center>
+   <x-m>0.13</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.519</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>
