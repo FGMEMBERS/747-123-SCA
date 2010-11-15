@@ -25,7 +25,7 @@
   <aero>747-200</aero>
 
   <startup>
-   <splash-texture>Aircraft/747-200/747-200-splash.rgb</splash-texture>
+   <splash-texture>Aircraft/shuttle-carrier-aircraft/747-SCA-splash.rgb</splash-texture>
   </startup>
 
   <systems>
@@ -58,7 +58,8 @@
   </hud>
   
   <model>
-   <path>Aircraft/747-200/Models/boeing747-200.xml</path>
+   <path>Aircraft/shuttle-carrier-aircraft/Models/boeing747-200.xml</path>
+   <path>Aircraft/shuttle/Models/shuttle-model.xml</path>
    <pushback>
     <enabled type="bool">false</enabled>
     <kp type="double">1500</kp>
