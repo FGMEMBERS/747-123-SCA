@@ -74,6 +74,15 @@
    </offsets>
   </model>
 
+  <model>
+  <path>Aircraft/shuttle/Models/shuttle.xml</path>
+		<offsets>
+			<x-m>4</x-m>
+			<y-m>0.0</y-m>
+			<z-m>9.8</z-m>
+			<pitch-deg>3.5</pitch-deg>
+		</offsets>
+  </model>
 
 <!-- ============================ -->
 <!-- Livery (1 texture per group) -->
