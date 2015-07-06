@@ -1,0 +1,14 @@
+       ---            = GearWheelNRight, GearWheelNLeft, X: -16.59421 Z: -5.14616
+
+
+
+
+
+
+
+
+-----------------     = GearWheelWRRight, GearWheelWRLeft, GearWheelWLRight, GearWheelWLLeft, X: 6.92719 Z: -5.16078
+-----------------     = GearWheelWRRight2, GearWheelWRLeft2, GearWheelWLRight2, GearWheelWLLeft2, X: 8.52819 Z: -5.16078
+
+    ---------         = GearWheelBRRight, GearWheelBRLeft, GearWheelBLRight, GearWheelBLLeft, X: 10.55229 Z: -5.15236
+    ---------         = GearWheelBRRight2, GearWheelBRLeft2, GearWheelBLRight2, GearWheelBLLeft2, X: 12.15329 Z: -5.15236

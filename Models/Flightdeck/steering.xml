@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+	<path>steering.ac</path>
+
+	<animation>
+		<object-name>steering_RIGHT</object-name>
+		<object-name>steering_LEFT</object-name>
+		<object-name>steering_CENTER</object-name>
+		<object-name>plusLEFT</object-name>
+		<object-name>plusRIGHT</object-name>
+		<object-name>LEFT</object-name>
+		<object-name>RIGHT</object-name>
+		<object-name>info_steering</object-name>
+		<type>noshadow</type>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>steering_RIGHT</object-name>
+		<object-name>steering_LEFT</object-name>
+		<object-name>steering_CENTER</object-name>
+		<property>controls/gear/steering</property>
+		<factor>85</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	
+<!-- Comandos -->
+
+<animation>
+      <type>pick</type>
+      <object-name>LEFT</object-name>
+      <object-name>steering_LEFT</object-name>
+      <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                  <command>property-adjust</command>
+					<property>controls/gear/steering</property>
+                  <step>-0.05</step>
+                  <min>0</min>
+                  <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+      </action>
+</animation>
+
+<animation>
+      <type>pick</type>
+      <object-name>RIGHT</object-name>
+      <object-name>steering_RIGHT</object-name>
+      <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                  <command>property-adjust</command>
+					<property>controls/gear/steering</property>
+                  <step> 0.05</step>
+                  <min>0</min>
+                  <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+      </action>
+</animation>
+
+<animation>
+      <type>pick</type>
+      <object-name>plusLEFT</object-name>
+      <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                  <command>property-adjust</command>
+					<property>controls/gear/steering</property>
+                  <step>-0.1</step>
+                  <min>0</min>
+                  <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+      </action>
+</animation>
+
+<animation>
+      <type>pick</type>
+      <object-name>plusRIGHT</object-name>
+      <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                  <command>property-adjust</command>
+					<property>controls/gear/steering</property>
+                  <step> 0.1</step>
+                  <min>0</min>
+                  <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+      </action>
+</animation>
+
+<animation>
+      <type>pick</type>
+      <object-name>steering_CENTER</object-name>
+      <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+				 <command>property-set</command>
+					<property>controls/gear/steering</property>
+				 <value>0</value>
+				 <wrap>false</wrap>
+            </binding>
+      </action>
+</animation>
+
+
+<!-- Cabin Ilumination -->
+   <animation>
+		<object-name>steering_RIGHT</object-name>
+		<object-name>steering_LEFT</object-name>
+		<object-name>steering_CENTER</object-name>
+		<object-name>info_steering</object-name>
+   <type>material</type>
+     <emission> 
+      <factor-prop>controls/lighting/cabin-lights</factor-prop>
+		 <red>0.6</red>
+		 <green>0.56</green>
+		 <blue>0.54</blue>
+      </emission>
+  </animation>
+
+	<animation>
+		<type>range</type>
+		<min-m>0</min-m>
+		<max-m>5</max-m>
+	</animation>
+	
+</PropertyList>

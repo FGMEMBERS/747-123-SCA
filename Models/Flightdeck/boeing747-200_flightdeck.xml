@@ -1,0 +1,1320 @@
+<?xml version="1.0"?>
+
+<!--
+     References :
+     ==========
+     - http://www.boeing.com/ :
+       747 airplane characteristics, D6-58236.
+
+
+     TO DO :
+     =====
+     - body gear turns with hysteresis.
+     - torsion of gear spring (presently sliding).
+     - the gear pistons are more extended in flight.
+
+
+     Known problems :
+     ==============
+     - the exact kinematics of wing and body gear is not known.
+     - the font of warning lights should be brighter, when on, than their face (easier reading).
+
+-->
+
+<PropertyList>
+
+ <path>boeing747-200_cockpit.ac</path>
+ 
+ <!-- ======================================= -->
+ <!-- panel models (X/Y/Z depth/width/height) -->
+ <!-- ======================================= -->
+
+<animation>
+        <type>select</type>
+      <object-name>disk</object-name>
+      <object-name>poly</object-name>
+      <object-name>rect</object-name>
+        <condition>
+	      <equals>
+	        <property>sim/devel</property>
+	        <value>true</value>
+	      </equals>
+        </condition>
+</animation>  
+
+<!-- Lower Panel Ilumination -->
+   <animation>
+   <object-name>sidepanel</object-name>
+   <object-name>centerpanel</object-name>
+   <type>material</type>
+     <emission> 
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+	 <red>0.5</red>
+	 <green>0.48</green>
+	 <blue>0.44</blue>
+      </emission>
+  </animation>
+  
+
+ 
+  <!-- ======================================= -->
+  <!-- Instruments                             -->
+  <!-- ======================================= -->
+ 
+ <!-- Captain / FO PANEL -->
+ <model> <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/switches/azs_3.xml</path> <offsets> <x-m> -19.4388 </x-m> <y-m> -0.169000 </y-m> <z-m> 2.83847 </z-m> <roll-deg> 0 </roll-deg> <pitch-deg> -11 </pitch-deg> <heading-deg> 0 </heading-deg> </offsets> </model>
+<!-- AI -->
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/AI/ai.xml</path>
+    <offsets>
+      <x-m> -19.444 </x-m>
+      <y-m> -0.444123 </y-m>
+      <z-m> 2.9116 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/AI/ai.xml</path>
+    <offsets>
+      <x-m> -19.444 </x-m>
+      <y-m>  0.44682 </y-m>
+      <z-m>  2.9116 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+		
+<!-- HSI -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/HSI/hsi.xml</path>
+    <offsets>
+      <x-m> -19.4343 </x-m>
+      <y-m> -0.444123 </y-m>
+      <z-m> 2.80011 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/HSI/hsi.xml</path>
+    <offsets>
+      <x-m> -19.4343 </x-m>
+      <y-m>  0.44682 </y-m>
+      <z-m> 2.80011 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+ 		
+<!-- ASI -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/AS/airspeed.xml</path>
+    <offsets>
+      <x-m> -19.4536 </x-m>
+      <y-m> -0.551751 </y-m>
+      <z-m> 2.90912 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/AS/airspeed.xml</path>
+    <offsets>
+      <x-m> -19.4536 </x-m>
+      <y-m>  0.33919 </y-m>
+      <z-m> 2.90912 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Clock -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/clock/clock.xml</path>
+    <offsets>
+      <x-m> -19.4411 </x-m>
+      <y-m> -0.642837 </y-m>
+      <z-m> 2.83847 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/clock/clock.xml</path>
+    <offsets>
+      <x-m> -19.4465 </x-m>
+      <y-m> 0.259675 </y-m>
+      <z-m> 2.86926 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- Marker beacon OMI -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/MarkerBeacon/marker_beacons.xml</path>
+    <offsets>
+      <x-m> -19.4662 </x-m>
+      <y-m> -0.244689 </y-m>
+      <z-m> 2.98082 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/MarkerBeacon/marker_beacons.xml</path>
+    <offsets>
+      <x-m> -19.4507 </x-m>
+      <y-m> 0.67235 </y-m>
+      <z-m> 2.893 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- Altimeter -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/Alt/altimeter1.xml</path>
+    <offsets>
+      <x-m> -19.4542 </x-m>
+      <y-m> -0.347616 </y-m>
+      <z-m> 2.91267 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/Alt/altimeter1.xml</path>
+    <offsets>
+      <x-m> -19.4542 </x-m>
+      <y-m> 0.54333 </y-m>
+      <z-m> 2.91267 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- RMI -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/RMI/rmi.xml</path>
+    <offsets>
+      <x-m> -19.4411 </x-m>
+      <y-m> -0.347616 </y-m>
+      <z-m> 2.83847 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/RMI/rmi.xml</path>
+    <offsets>
+      <x-m> -19.4411 </x-m>
+      <y-m> 0.54333 </y-m>
+      <z-m> 2.83847 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- IVSI -->
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/IVSI/IVSI.xml</path>
+    <offsets>
+      <x-m> -19.4411 </x-m>
+      <y-m> -0.27074 </y-m>
+      <z-m> 2.83847 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/IVSI/IVSI.xml</path>
+    <offsets>
+      <x-m> -19.4369 </x-m>
+      <y-m> 0.62207 </y-m>
+      <z-m> 2.81511 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+		
+  <!-- Radio Altimeter -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/RA315/ra315.xml</path>
+    <offsets>
+      <x-m> -19.4542 </x-m>
+      <y-m> -0.27074 </y-m>
+      <z-m> 2.91267 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/RA315/ra315.xml</path>
+    <offsets>
+      <x-m> -19.4506 </x-m>
+      <y-m> 0.62207 </y-m>
+      <z-m> 2.89252 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Turn Indicator -->
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/tc/tc.xml</path>
+    <offsets>
+      <x-m> -19.4308 </x-m>
+      <y-m> -0.541172 </y-m>
+      <z-m> 2.78043 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/tc/tc.xml</path>
+    <offsets>
+      <x-m> -19.4308 </x-m>
+      <y-m> 0.34978 </y-m>
+      <z-m> 2.78043 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- ControlsPositions -->
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/ControlsPositions/control_positions_sm.xml</path>
+    <offsets>
+      <x-m> -19.4334 </x-m>
+      <y-m> 0.26501 </y-m>
+      <z-m> 2.79486 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+    
+
+  
+ <!-- Main PANEL -->
+ 
+  <!-- Standby ADI -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/standby-adi/stdby-adi.xml</path>
+    <offsets>
+      <x-m> -19.457 </x-m>
+      <y-m> -0.169078 </y-m>
+      <z-m> 2.92689 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- EPR -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EPR/epr0.xml</path>
+    <offsets>
+      <x-m> -19.4562 </x-m>
+      <y-m> -0.0957175 </y-m>
+      <z-m> 2.92268 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EPR/epr1.xml</path>
+    <offsets>
+      <x-m> -19.4562 </x-m>
+      <y-m> -0.0449065 </y-m>
+      <z-m> 2.92268 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EPR/epr2.xml</path>
+    <offsets>
+      <x-m> -19.4562 </x-m>
+      <y-m>  0.00546047 </y-m>
+      <z-m> 2.92268 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EPR/epr3.xml</path>
+    <offsets>
+      <x-m> -19.4562 </x-m>
+      <y-m>  0.05627 </y-m>
+      <z-m> 2.92268 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- N1 -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/N1/n1-0.xml</path>
+    <offsets>
+      <x-m> -19.4474 </x-m>
+      <y-m> -0.0957175 </y-m>
+      <z-m> 2.87274 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/N1/n1-1.xml</path>
+    <offsets>
+      <x-m> -19.4474 </x-m>
+      <y-m> -0.0449065 </y-m>
+      <z-m> 2.87274 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/N1/n1-2.xml</path>
+    <offsets>
+      <x-m> -19.4474 </x-m>
+      <y-m>  0.05627 </y-m>
+      <z-m> 2.87274 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/N1/n1-3.xml</path>
+    <offsets>
+      <x-m> -19.4474 </x-m>
+      <y-m>  0.00546047 </y-m>
+      <z-m> 2.87274 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- EGT -->
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EGT/EGT-0.xml</path>
+    <offsets>
+      <x-m> -19.4388 </x-m>
+      <y-m> -0.0957175 </y-m>
+      <z-m> 2.82348 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EGT/EGT-1.xml</path>
+    <offsets>
+      <x-m> -19.4388 </x-m>
+      <y-m> -0.0449065 </y-m>
+      <z-m> 2.82348 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EGT/EGT-2.xml</path>
+    <offsets>
+      <x-m> -19.4388 </x-m>
+      <y-m> 0.00546047 </y-m>
+      <z-m> 2.82348 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/EGT/EGT-3.xml</path>
+    <offsets>
+      <x-m> -19.4388 </x-m>
+      <y-m> 0.05627 </y-m>
+      <z-m> 2.82348 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- FuelFlow -->
+ 
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/FuelFlow/ff-0.xml</path>
+    <offsets>
+      <x-m> -19.43 </x-m>
+      <y-m> -0.0957175 </y-m>
+      <z-m> 2.77354 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/FuelFlow/ff-1.xml</path>
+    <offsets>
+      <x-m> -19.43 </x-m>
+      <y-m> -0.0449065 </y-m>
+      <z-m> 2.77354 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/FuelFlow/ff-2.xml</path>
+    <offsets>
+      <x-m> -19.43 </x-m>
+      <y-m> 0.00546047 </y-m>
+      <z-m> 2.77354 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/FuelFlow/ff-3.xml</path>
+    <offsets>
+      <x-m> -19.43 </x-m>
+      <y-m> 0.05627 </y-m>
+      <z-m> 2.77354 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- Flaps OUT and IN boar -->
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/Flaps/flaps.xml</path>
+    <offsets>
+      <x-m> -19.4493 </x-m>
+      <y-m> 0.111545 </y-m>
+      <z-m>  2.88317 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/Flaps/flaps.xml</path>
+    <offsets>
+      <x-m> -19.4493 </x-m>
+      <y-m> 0.111545 </y-m>
+      <z-m> 2.83242 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+  
+   <!-- Gear lights -->
+  
+  <model>
+    <path>Aircraft/747-123-SCA/Models/Flightdeck/Instruments/Gear/gear.xml</path>
+    <offsets>
+      <x-m> -19.4614 </x-m>
+      <y-m> 0.191665 </y-m>
+      <z-m> 2.95186 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   -11 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+ 
+  
+  
+  
+  
+  
+  
+  
+
+<!-- ===== -->
+<!-- Other -->
+<!-- ===== -->
+
+  <model>
+   <name>Magnetic Compass</name>
+   <path>Aircraft/Instruments-3d/mag-compass.xml</path>
+   <offsets>
+    <x-m>-19.29</x-m>
+    <y-m>0.00</y-m>
+    <z-m>3.38</z-m>
+   </offsets>
+  </model>
+
+ 
+ <!-- OVERHEAD -->
+
+  <panel>
+   <path>Aircraft/747-123-SCA/Panels/747-200-overhead.xml</path>
+   <bottom-left>
+    <x-m>-19.280</x-m>
+    <y-m>-0.251</y-m>
+    <z-m> 3.328</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-19.280</x-m>
+    <y-m> 0.759</y-m>
+    <z-m> 3.328</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-18.775</x-m>
+    <y-m>-0.251</y-m>
+    <z-m> 3.578</z-m>
+   </top-left>
+  </panel>
+
+ <!-- PEDESTAL -->
+
+  <panel>
+   <path>Aircraft/747-123-SCA/Panels/747-200-pedestal.xml</path>
+   <bottom-left>
+    <x-m>-18.475</x-m>
+    <y-m>-0.201</y-m>
+    <z-m> 2.623</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-18.475</x-m>
+    <y-m> 0.409</y-m>
+    <z-m> 2.623</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-18.780</x-m>
+    <y-m>-0.201</y-m>
+    <z-m> 2.623</z-m>
+   </top-left>
+  </panel>
+
+ <!-- ENGINEER -->
+
+  <panel>
+   <path>Aircraft/747-123-SCA/Panels/747-200-engineer-fuel.xml</path>
+   <bottom-left>
+    <x-m>-17.86</x-m>
+    <y-m> 0.55</y-m>
+    <z-m> 2.78</z-m>
+   </bottom-left>
+   <bottom-right>
+    <x-m>-17.36</x-m>
+    <y-m> 0.55</y-m>
+    <z-m> 2.78</z-m>
+   </bottom-right>
+   <top-left>
+    <x-m>-17.86</x-m>
+    <y-m> 0.59</y-m>
+    <z-m> 3.03</z-m>
+   </top-left>
+  </panel>
+
+
+
+
+<!-- ============= -->
+<!-- Optimizations -->
+<!-- ============= -->
+
+  <animation>
+   <type>range</type>
+   <object-name>Cockpit</object-name>
+   <min-m>0</min-m>
+   <max-m>100</max-m>
+  </animation>
+
+
+<!-- ================================== -->
+<!-- Animations (x/y/z = back/right/up) -->
+<!-- ================================== -->
+
+<!-- DOORS
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FlightDeckDoor</object-name>
+  <property>controls/doors/crew/flightdeck/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>180.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>-16.875</x-m>
+   <y-m>-0.03</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>ExitDoor</object-name>
+  <property>controls/doors/crew/exit/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>0.5</ind>
+     <dep>-0.25</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>-0.25</dep>
+    </entry>
+  </interpolation>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>ExitDoor</object-name>
+  <property>controls/doors/crew/exit/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>0.5</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>0.7</dep>
+    </entry>
+  </interpolation>
+  <axis>
+   <x>1.0</x>
+   <y>0.35</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ForwardCargoDoor</object-name>
+  <property>controls/doors/cargo/forward/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>0.1</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>130.0</dep>
+    </entry>
+  </interpolation>
+  <axis>
+   <x1-m>-12.908</x1-m>
+   <y1-m>2.989</y1-m>
+   <z1-m>-0.78</z1-m>
+   <x2-m>-10.208</x2-m>
+   <y2-m>3.020</y2-m>
+   <z2-m>-0.83</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>AftCargoDoor</object-name>
+  <property>controls/doors/cargo/aft/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>0.1</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>130.0</dep>
+    </entry>
+  </interpolation>
+  <axis>
+   <x1-m>19.306</x1-m>
+   <y1-m>3.011</y1-m>
+   <z1-m>-0.66</z1-m>
+   <x2-m>22.298</x2-m>
+   <y2-m>2.965</y2-m>
+   <z2-m>-0.66</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>BulkCargoDoor</object-name>
+  <property>controls/doors/cargo/bulk/position-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>0.1</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>-60.0</dep>     
+    </entry>
+  </interpolation>
+  <axis>
+   <x1-m>23.927</x1-m>
+   <y1-m>2.77</y1-m>
+   <z1-m>-0.70</z1-m>
+   <x2-m>25.156</x2-m>
+   <y2-m>2.68</y2-m>
+   <z2-m>-0.70</z2-m>
+  </axis>
+ </animation>
+ -->
+ 
+<!-- YOKES -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LeftYokeColumn</object-name>
+  <object-name>LeftYoke</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>-5</factor>
+  <center>
+   <x-m>-19.040</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.276</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LeftYoke</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-90</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.460</y-m>
+   <z-m>2.876</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RightYokeColumn</object-name>
+  <object-name>RightYoke</object-name>
+  <property>controls/flight/elevator</property>
+  <factor>-5</factor>
+  <center>
+   <x-m>-19.040</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.276</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RightYoke</object-name>
+  <property>controls/flight/aileron</property>
+  <factor>-90</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.467</y-m>
+   <z-m>2.876</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- SEAT -->
+
+<!-- CAPTAIN -->
+
+<!-- raises the armrest to reach the pedestal -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>CaptainSeatArm</object-name>
+  <offset-deg>80</offset-deg>   
+  <condition>
+   <property>systems/seat/captain</property>
+  </condition>
+  <center>
+   <x-m>-18.555</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.779</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>CaptainSeat</object-name>
+  <property>systems/human/captain/stowe-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0</dep>
+    </entry>
+    <entry>
+     <ind>0.6</ind>
+     <dep>0.3</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>0.3</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>CaptainSeat</object-name>
+  <property>systems/human/captain/stowe-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0</dep>
+    </entry>
+    <entry>
+     <ind>0.6</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>-0.2</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- COPILOT -->
+
+<!-- raises the armrest to reach the pedestal -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>CopilotSeatArm</object-name>
+  <offset-deg>80</offset-deg>   
+  <condition>
+   <property>systems/seat/copilot</property>
+  </condition>
+  <center>
+   <x-m>-18.555</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.779</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>CopilotSeat</object-name>
+  <property>systems/human/copilot/stowe-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0</dep>
+    </entry>
+    <entry>
+     <ind>0.6</ind>
+     <dep>0.3</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>0.3</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>CopilotSeat</object-name>
+  <property>systems/human/copilot/stowe-norm</property>
+  <interpolation>
+    <entry>
+     <ind>0.0</ind>
+     <dep>0</dep>
+    </entry>
+    <entry>
+     <ind>0.6</ind>
+     <dep>0.0</dep>
+    </entry>
+    <entry>
+     <ind>1.0</ind>
+     <dep>0.2</dep>
+    </entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- ENGINEER -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>EngineerSeat</object-name>
+  <property>sim/current-view/goal-heading-offset-deg</property>
+  <offset-deg>90</offset-deg>   
+  <condition>
+   <property>systems/seat/engineer</property>
+  </condition>
+  <center>
+   <x-m>-17.603</x-m>
+   <y-m>-0.004</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+
+<!-- WARNING -->
+
+ <animation>
+  <type>material</type>
+  <object-name>AmberCargoDoor</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>1.0</green>
+   <blue>0.0</blue>
+   <factor-prop>systems/warning/amber/cargo-doors</factor-prop>
+  </emission> 
+  <texture-prop>systems/warning/texture/amber/cargo-doors</texture-prop>
+ </animation> 
+
+ <animation>
+  <type>material</type>
+  <object-name>RedPullUp</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+   <factor-prop>systems/warning/red/pull-up</factor-prop>
+  </emission> 
+  <texture-prop>systems/warning/texture/red/pull-up</texture-prop>
+ </animation> 
+
+<!-- CENTER -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>GearLever</object-name>
+  <property>controls/gear/gear-down</property>
+  <factor>60</factor>
+  <offset-deg>-25</offset-deg>   
+  <center>
+   <x-m>-19.38</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.842</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- PEDESTAL -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>StabLever</object-name>
+  <object-name>TrimLever</object-name>
+  <property>controls/flight/elevator-trim</property>
+  <factor>-25</factor>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>SpoilerLever</object-name>
+  <property>controls/flight/spoilers-lever</property>
+  <factor>60</factor>
+  <offset-deg>-30</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle1</object-name>
+  <property>controls/engines/engine[0]/throttle-manual</property>
+  <factor>-50</factor>
+  <offset-deg>25</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle2</object-name>
+  <property>controls/engines/engine[1]/throttle-manual</property>
+  <factor>-50</factor>
+  <offset-deg>25</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle3</object-name>
+  <property>controls/engines/engine[2]/throttle-manual</property>
+  <factor>-50</factor>
+  <offset-deg>25</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle4</object-name>
+  <property>controls/engines/engine[3]/throttle-manual</property>
+  <factor>-50</factor>
+  <offset-deg>25</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FlapLever</object-name>
+  <property>controls/flight/flaps</property>
+  <factor>60</factor>
+  <offset-deg>-30</offset-deg>
+  <center>
+   <x-m>-19.028</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.599</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ParkingBrakeLever</object-name>
+  <property>controls/gear/brake-parking</property>
+  <factor>80</factor>
+  <offset-deg>-10</offset-deg>   
+  <center>
+   <x-m>-18.937</x-m>
+   <y-m>0.0</y-m>
+   <z-m>2.633</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+
+</PropertyList>

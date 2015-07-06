@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+<!-- ILS -->
+
+  <path>ILS.ac</path>
+
+<!-- Lighting -->
+
+<animation> 
+  <type>material</type>
+  <object-name>LOCNeedle</object-name>
+  <object-name>GSNeedle</object-name>
+  <object-name>face</object-name>
+  <object-name>label</object-name>
+  <emission>
+	 <red>0.3</red>
+	 <green>0.25</green>
+	 <blue>0.2</blue>
+       <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>	
+ </emission>
+ </animation>
+
+ <animation>
+        <type>material</type>
+        <object-name>bezeloutside</object-name>
+        <object-name>bezelinside</object-name>
+        <object-name>faceplate</object-name>
+        <object-name>cylinder</object-name>
+        <object-name>cylinder</object-name>
+        <object-name>screw_top</object-name>
+        <object-name>disk</object-name>
+        <object-name>screw_bottom</object-name>
+        <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>/controls/lighting/panel-norm</factor-prop>
+        </emission>
+    </animation>
+
+  <animation>
+   <type>rotate</type>
+   <object-name>LOCNeedle</object-name>
+   <property>instrumentation/nav[0]/heading-needle-deflection</property>
+   <factor>-3.2</factor>
+   <center>
+    <x-m>0.003</x-m>
+    <y-m>0.000</y-m>
+    <z-m>0.023</z-m>
+   </center>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+  </animation>
+
+ <animation>
+  <name>GSNeedle</name>
+  <type>rotate</type>
+  <object-name>GSNeedle</object-name>
+  <property>instrumentation/nav[0]/gs-needle-deflection</property>
+  <min>-3.5</min>
+  <max>3.5</max>
+  <interpolation>
+   <entry>
+    <ind>-3.5</ind>
+    <dep>-30</dep>
+   </entry>
+   <entry>
+    <ind>3.5</ind>
+    <dep>30</dep>
+   </entry>
+  </interpolation>
+  <center>
+   <x-m>0.003</x-m>
+   <y-m>-0.024</y-m>
+   <z-m>0.000</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>GSFlag</object-name>
+  <condition>
+   <and>
+    <or>
+     <equals>
+      <property>instrumentation/nav/in-range[0]</property>
+      <value type="bool">false</value>
+     </equals>
+     <equals>
+      <property>instrumentation/nav/has-gs[0]</property>
+      <value type="bool">false</value>
+     </equals>
+    </or>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>LOCFlag</object-name>
+  <condition>
+   <equals>
+    <property>instrumentation/nav[0]/in-range</property>
+    <value type="bool">false</value>
+   </equals>
+  </condition>
+ </animation>
+
+ <!-- Noshadow -->
+ <animation>
+  <type>noshadow</type>
+ </animation>
+ 
+<!-- *** LoD *** -->
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>5</max-m>
+ </animation> 
+
+</PropertyList>
