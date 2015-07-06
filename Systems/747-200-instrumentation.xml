@@ -51,6 +51,12 @@ file, these values will be used (they are hardcoded).
     <number>0</number>
     <static-pressure>/systems/static/pressure-inhg</static-pressure>
   </altimeter>
+  
+    <attitude-indicator>
+        <name>attitude-indicator</name>
+        <number>0</number>
+        <suction>/systems/vacuum/suction-inhg</suction>
+    </attitude-indicator>
 
   <clock>
     <name>clock</name>
@@ -67,13 +73,11 @@ file, these values will be used (they are hardcoded).
     <number>1</number>
   </dme>
 
-<!--
   <encoder>
     <name>encoder</name>
     <number>0</number>
     <static-pressure>/systems/pressurization/pressure-inhg</static-pressure>
   </encoder>
--->
 
   <gps>                                                                      <!-- required by autopilot -->
     <name>gps</name>
@@ -91,12 +95,10 @@ file, these values will be used (they are hardcoded).
     <number>0</number>
   </inst-vertical-speed-indicator>
 
-<!--
   <KT-70>
     <name>kt-70</name>
     <number>0</number>
   </KT-70>
--->
 
   <magnetic-compass>
     <name>magnetic-compass</name>
@@ -123,13 +125,11 @@ file, these values will be used (they are hardcoded).
     <number>0</number>
   </slip-skid-ball>
 
-<!--
   <transponder>
     <name>transponder</name>
     <number>0</number>
     <mode-c-altitude>/instrumentation/encoder/mode-c-alt-ft</mode-c-altitude>
   </transponder>
--->
 
   <turn-indicator>
     <name>turn-indicator</name>

@@ -13,8 +13,7 @@ Fuel = {};
 Fuel.new = func {
    var obj = { parents : [Fuel],
 
-               totalfuelinstrument : TotalFuel.new(),
-               tanksystem : Tanks.new()
+           tanksystem : Tanks.new()
          };
 
    obj.init();
@@ -28,10 +27,6 @@ Fuel.init = func {
 
 Fuel.menuexport = func {
    me.tanksystem.menu();
-}
-
-Fuel.schedule = func {
-   me.totalfuelinstrument.schedule();
 }
 
 
@@ -240,59 +235,4 @@ Pump.transfertanks = func( idest, contentdestlb, isour, pumplb ) {
            me.tanks[idest].getChild("level-gal_us").setValue(tankdestgalus);
        }
    }
-}
-
-
-# ==========
-# TOTAL FUEL
-# ==========
-TotalFuel = {};
-
-TotalFuel.new = func {
-   var obj = { parents : [TotalFuel,System],
-
-               STEPSEC : 1.0,                     # 3 s would be enough, but needs 1 s for kg/h
-
-               nb_tanks : 0
-         };
-
-   obj.init();
-
-   return obj;
-};
-
-TotalFuel.init = func {
-   me.inherit_system("/instrumentation/fuel");
-
-   me.nb_tanks = size(me.dependency["tank"]);
-}
-
-# total of fuel in US gal
-TotalFuel.schedule = func {
-   var fuelgalus = 0.0;
-   var stepgalus = 0.0;
-   var fuelgaluspmin = 0.0;
-   var fuelgalusph = 0.0;
-   var speedup = me.noinstrument["speed-up"].getValue();
-
-   # last total
-   var tanksgalus = me.itself["root"].getChild("total-gal_us").getValue();
-
-   # new total
-   for(var i=0; i<me.nb_tanks; i=i+1) {
-       fuelgalus = fuelgalus + me.dependency["tank"][i].getChild("level-gal_us").getValue();
-   }
-   me.itself["root"].getChild("total-gal_us").setValue(fuelgalus);
-
-
-   # ==========================================================
-   # - MUST BE CONSTANT with speed up : pumping is accelerated.
-   # - not real, used to check errors in pumping.
-   # ==========================================================
-   stepgalus = tanksgalus - fuelgalus;
-   fuelgaluspmin = stepgalus * constant.MINUTETOSECOND / ( me.STEPSEC * speedup );
-   fuelgalusph = fuelgaluspmin * constant.HOURTOMINUTE;
-
-   # not real
-   me.itself["root"].getChild("fuel-flow-gal_us_ph").setValue(fuelgalusph);
 }

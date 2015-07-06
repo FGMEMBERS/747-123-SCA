@@ -2,9 +2,7 @@
 
 <!-- VOR Radio Magnetic Indicator :
 
-     - 2 DME frequencies displayed at the same time (no knob).
-     - Flightgear NAV is always true heading (towards the real antenna);
-       while compass may be either magnetic or true. 
+     2 DME frequencies displayed at the same time (no knob).
 -->
 
 <PropertyList>
@@ -485,7 +483,7 @@
      </transformation>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-deg</property>
+      <property>/orientation/heading-magnetic-deg</property>
       <min>0.0</min>
       <max>360.0</max>
       <scale>-1.0</scale>
@@ -511,7 +509,15 @@
     <transformations>
      <transformation>
       <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
       <offset>-90</offset> <!-- horizontal left -->
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
+      <min>0.0</min>
+      <max>360.0</max>
+      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>x-shift</type>
@@ -550,7 +556,7 @@
      </transformation>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-deg</property>
+      <property>/orientation/heading-magnetic-deg</property>
       <min>0.0</min>
       <max>360.0</max>
       <scale>-1.0</scale>
@@ -576,7 +582,15 @@
     <transformations>
      <transformation>
       <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
       <offset>90</offset> <!-- horizontal right -->
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
+      <min>0.0</min>
+      <max>360.0</max>
+      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>x-shift</type>
@@ -615,7 +629,7 @@
      </transformation>
      <transformation>
       <type>rotation</type>
-      <property>/orientation/heading-deg</property>
+      <property>/orientation/heading-magnetic-deg</property>
       <min>0.0</min>
       <max>360.0</max>
       <scale>-1.0</scale>
@@ -645,7 +659,15 @@
     <transformations>
      <transformation>
       <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
       <offset>90</offset> <!-- horizontal right -->
+     </transformation>
+     <transformation>
+      <type>rotation</type>
+      <property>/orientation/heading-magnetic-deg</property>
+      <min>0.0</min>
+      <max>360.0</max>
+      <scale>-1.0</scale>
      </transformation>
      <transformation>
       <type>rotation</type>

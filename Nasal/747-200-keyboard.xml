@@ -154,13 +154,6 @@
      <command>nasal</command>
      <script>globals.Boeing747.seatsystem.viewexport("captain");</script>
     </binding>
-    <mod-shift>
-     <desc>Restore view pitch</desc>
-     <binding>
-      <command>nasal</command>
-      <script>globals.Boeing747.seatsystem.restorepitchexport();</script>
-     </binding>
-    </mod-shift>
    </key>
 
    <key n="23">
@@ -361,5 +354,13 @@
      </script>
     </binding>
    </key>
-
+   
+				<key n="127">
+					<name>Delete</name>
+					<desc>Toggle Reversers</desc>
+					<binding>
+						<command>nasal</command>
+						<script>reversethrust.togglereverser()</script>
+					</binding>
+				</key>
 </PropertyList>

@@ -13,10 +13,10 @@ SeatRail = {};
 SeatRail.new = func {
    var obj = { parents : [SeatRail],
 
-               RAILSEC : 5.0,
+           RAILSEC : 5.0,
 
-               FLIGHT : 0.0,
-               PARK : 1.0
+           FLIGHT : 0.0,
+           PARK : 1.0
          };
 
 }

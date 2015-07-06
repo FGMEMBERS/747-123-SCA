@@ -49,8 +49,8 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 
   <instrument include="Instruments/747-speed-up.xml">
    <name>speed up</name>
-   <x>170</x>
-   <y>320</y>
+   <x>-70</x>
+   <y>280</y>
    <w>75</w>
    <h>15</h>
   </instrument>

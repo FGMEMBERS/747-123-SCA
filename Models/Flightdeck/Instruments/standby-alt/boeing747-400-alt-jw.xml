@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>boeing747-400-alt-jw.ac</path>
+
+
+ <animation>
+  <type>scale</type>
+  <x-offset>0.84</x-offset>
+  <y-offset>0.84</y-offset>
+  <z-offset>0.84</z-offset>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Needle1</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.36</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>alt1</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.01</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>alt2</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <scroll>20</scroll>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>alt3</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <scroll>20</scroll>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>alt4</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <scroll>20</scroll>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>press1</object-name>
+  <property>/instrumentation/altimeter/setting-inhg</property>
+  <factor>10.0</factor>
+  <step>0.01</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>press2</object-name>
+  <property>/instrumentation/altimeter/setting-inhg</property>
+  <factor>1.0</factor>
+  <step>0.1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>press3</object-name>
+  <property>/instrumentation/altimeter/setting-inhg</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>textranslate</type>
+  <object-name>press4</object-name>
+  <property>/instrumentation/altimeter/setting-inhg</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+   <animation>
+   <object-name>botao</object-name>
+   <object-name>bezel</object-name>
+   <object-name>cylinder</object-name>
+   <type>material</type>
+     <emission> 
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+	 <red>0.3</red>
+	 <green>0.28</green>
+	 <blue>0.24</blue>
+      </emission>
+  </animation>
+  
+  
+ <animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+   <object-name>alt4</object-name>
+   <object-name>alt3</object-name>
+   <object-name>alt2</object-name>
+   <object-name>alt1</object-name>
+   <object-name>Needle1</object-name>
+   <object-name>press4</object-name>   
+   <object-name>press3</object-name>   
+   <object-name>press2</object-name>   
+   <object-name>press1</object-name>   
+   <emission>
+	 <red>0.3</red>
+	 <green>0.28</green>
+	 <blue>0.27</blue>
+    <factor-prop>controls/lighting/instruments-norm</factor-prop>
+   </emission> 
+ </animation> 
+
+
+</PropertyList>

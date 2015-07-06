@@ -24,27 +24,6 @@
    </frequencies>
   </dme>
 
-  <fuel>
-   <serviceable type="bool" archive="y">true</serviceable>
-
-   <fuel-flow-gal_us_ph type="double">0.0</fuel-flow-gal_us_ph>
-
-   <relations>
-    <dependency>
-     <tank>
-      <component>/consumables/fuel</component>
-      <subcomponent>tank</subcomponent>
-     </tank>
-    </dependency>
-
-    <noinstrument>
-     <speed-up>/sim/speed-up</speed-up>
-    </noinstrument>
-   </relations>
-
-   <total-gal_us type="double">0.0</total-gal_us>
-  </fuel>
-
   <hsi>
    <serviceable type="bool" archive="y">true</serviceable>
   </hsi>

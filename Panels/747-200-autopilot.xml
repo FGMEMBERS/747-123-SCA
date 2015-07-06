@@ -59,7 +59,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <name>autothrottle speed</name>
    <x>215</x>
    <y>110</y>
-   <w>100</w>
+   <w>70</w>
    <h>100</h>
   </instrument>
 

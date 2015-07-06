@@ -39,45 +39,31 @@
 
   <group>
     <layout>hbox</layout>
-
-    <group>
-      <layout>hbox</layout>
-      <empty><stretch>true</stretch></empty>
-
-      <button>
-        <legend>OK</legend>
-        <binding>
-          <command>dialog-apply</command>
-        </binding>
-        <binding>
-          <command>nasal</command>
-          <script>globals.Boeing747.fuelsystem.menuexport();</script>
-        </binding>
-        <binding>
-          <command>dialog-close</command>
-        </binding>
-      </button>
-
-      <button>
-        <legend>Close</legend>
-        <default>true</default>
-        <key>Esc</key>
-        <binding>
-          <command>dialog-close</command>
-        </binding>
-      </button>
-    </group>
+    <empty><stretch>true</stretch></empty>
 
     <button>
-      <legend>Menu</legend>
-      <key>m</key>
+      <legend>OK</legend>
       <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-menu</dialog-name>
+        <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>globals.Boeing747.fuelsystem.menuexport();</script>
       </binding>
       <binding>
         <command>dialog-close</command>
       </binding>
     </button>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
   </group>
 </PropertyList>

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<PropertyList> 
+	<path>clock.ac</path>
+	
+	  <animation>
+		  <type>scale</type>
+		  <x-offset>0.968715</x-offset>
+		  <y-offset>0.968715</y-offset>
+		  <z-offset>0.968715</z-offset>
+	  </animation>
+
+    	<animation> 
+		<type>rotate</type>
+		<object-name>HourHand</object-name>
+		<property>/instrumentation/clock/indicated-sec</property>
+		<factor>0.00833333333333333</factor>
+		<axis> 
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation> 
+		<type>rotate</type>
+		<object-name>MinuteHand</object-name>
+		<property>/instrumentation/clock/indicated-sec</property>
+		<factor>0.1</factor>
+		<axis> 
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation> 
+		<type>rotate</type>
+		<object-name>SecondHand</object-name>
+		<property>/instrumentation/clock/indicated-sec</property>
+		<factor>6</factor>
+		<axis> 
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+     <animation>
+        <type>rotate</type>
+        <object-name>knob</object-name>
+        <property>/instrumentation/clock/local-short-string</property>
+        <factor>-10</factor>
+        <center>
+            <x-m>0.0128718</x-m>
+            <y-m>-0.0305024</y-m>
+            <z-m>-0.0308897</z-m>
+        </center>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+	<!-- lighting -->
+
+<animation>
+      <type>material</type>
+      <object-name>casco</object-name>
+      <object-name>anelexterno</object-name>
+      <object-name>knob</object-name>
+      <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>controls/lighting/panel-norm</factor-prop>
+      </emission>
+</animation>
+
+<animation>
+      <type>material</type>
+      <object-name>face</object-name>
+      <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      </emission>
+</animation>
+
+<animation>
+      <type>material</type>
+      <object-name>calculator-ring</object-name>
+      <emission>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+            <red>0.035</red>
+            <green>0.012</green>
+            <blue>0.18</blue>
+      </emission>
+</animation>
+
+<animation>
+      <type>material</type>
+      <object-name>HourHand</object-name>
+      <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      </emission>
+</animation>
+
+<animation>
+      <type>material</type>
+      <object-name>MinuteHand</object-name>
+      <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      </emission>
+</animation>
+
+<animation>
+      <type>material</type>
+      <object-name>SecondHand</object-name>
+      <emission>
+            <red>0.3</red>
+            <green>0.25</green>
+            <blue>0.2</blue>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      </emission>
+</animation>
+
+<animation>
+      <object-name>clock</object-name>
+      <type>noshadow</type>
+</animation>
+
+<!-- LoD -->
+<animation>
+      <type>range</type>
+      <min-m>0</min-m>
+      <max-m>10</max-m>
+</animation>
+
+</PropertyList>

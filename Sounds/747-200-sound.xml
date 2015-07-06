@@ -10,6 +10,133 @@
 
 
  <fx>
+ 
+<!-- ENGINE INTERNAL -->
+  <!-- som do reverso interno -->
+  <engine>
+   <name>Left engine 1 reverse inside</name>
+   <path>Sounds/exhaust_loop.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <or>
+     <property>/engines/engine/reverser-pos-norm</property>
+    </or>
+    <and>
+     <property>engines/engine[0]/running</property>
+    </and>
+   </condition>
+   <position>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>-17.0</y>                                       <!-- left -->
+    <z>0.0</z>
+   </position>
+        <volume>
+            <property>sim/sound/Evolume</property>
+        </volume>
+   <volume>
+    <property>/engines/engine[0]/thrust_lb</property>
+    <type>ln</type>
+    <factor>0.0050</factor>
+    <offset>0.05</offset>
+   </volume>
+   <pitch>
+    <offset>1.6</offset>
+   </pitch>
+  </engine>
+
+  <engine>
+   <name>Left engine 2 reverse inside</name>
+   <path>Sounds/exhaust_loop.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <or>
+     <property>/engines/engine/reverser-pos-norm</property>
+    </or>
+    <and>
+     <property>engines/engine[1]/running</property>
+    </and>
+   </condition>
+   <position>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>-17.0</y>                                       <!-- left -->
+    <z>0.0</z>
+   </position>
+        <volume>
+            <property>sim/sound/Evolume</property>
+        </volume>
+   <volume>
+    <property>/engines/engine[1]/thrust_lb</property>
+    <type>ln</type>
+    <factor>0.0050</factor>
+    <offset>0.05</offset>
+   </volume>
+   <pitch>
+    <offset>1.6</offset>
+   </pitch>
+  </engine>
+
+  <engine>
+   <name>Right engine 3 reverse inside</name>
+   <path>Sounds/exhaust_loop.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <or>
+     <property>/engines/engine[2]/reverser-pos-norm</property>
+    </or>
+    <and>
+     <property>engines/engine[2]/running</property>
+    </and>
+   </condition>
+   <position>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>17.0</y>                                        <!-- right -->
+    <z>0.0</z>
+   </position>
+        <volume>
+            <property>sim/sound/Evolume</property>
+        </volume>
+   <volume>
+    <property>/engines/engine[2]/thrust_lb</property>
+    <type>ln</type>
+    <factor>0.0050</factor>
+    <offset>0.05</offset>
+   </volume>
+   <pitch>
+    <offset>1.6</offset>
+   </pitch>
+  </engine>
+
+  <engine>
+   <name>Right engine 4 reverse inside</name>
+   <path>Sounds/exhaust_loop.wav</path>
+   <mode>looped</mode>
+   <condition>
+    <or>
+     <property>/engines/engine[3]/reverser-pos-norm</property>
+    </or>
+    <and>
+     <property>engines/engine[3]/running</property>
+    </and>
+   </condition>
+   <position>
+    <x>30.0</x>                                        <!-- wing -->
+    <y>17.0</y>                                        <!-- right -->
+    <z>0.0</z>
+   </position>
+        <volume>
+            <property>sim/sound/Evolume</property>
+        </volume>
+   <volume>
+    <property>/engines/engine[3]/thrust_lb</property>
+    <type>ln</type>
+    <factor>0.0050</factor>
+    <offset>0.05</offset>
+   </volume>
+   <pitch>
+    <offset>1.6</offset>
+   </pitch>
+  </engine>
+  <!-- som do reverso interno -->
 
 <!-- ENGINE INTERNAL -->
   
@@ -385,6 +512,22 @@
     <z>0.0</z>
    </position>
   </door>
+  
+<!-- Crash -->
+<crash>
+  <name>Crash sound</name>
+  <mode>once</mode>
+  <path>Sounds/crash.wav</path>
+  <property>sim/crashed</property>
+  <volume>
+    <factor>1</factor>
+  </volume>
+  <pitch>
+    <factor>1.5</factor>
+  </pitch>
+</crash>
+
+
 
 </fx>
  

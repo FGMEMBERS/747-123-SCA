@@ -15,6 +15,79 @@
     <halign>center</halign>
 
     <text>
+      <label>Doors</label>
+    </text>
+
+    <group>
+      <layout>hbox</layout>
+
+      <group>
+        <layout>vbox</layout>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Flight deck</label>
+          <property>/controls/doors/crew/flightdeck/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.flightdeckexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Exit</label>
+          <property>/controls/doors/crew/exit/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.exitexport();</script>
+          </binding>
+        </checkbox>
+
+      </group>
+
+      <group>
+        <layout>vbox</layout>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo forward</label>
+          <property>/controls/doors/cargo/forward/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargoforwardexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo aft</label>
+          <property>/controls/doors/cargo/aft/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargoaftexport();</script>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Cargo bulk</label>
+          <property>/controls/doors/cargo/bulk/position-norm</property>
+          <binding>
+           <command>nasal</command>
+           <script>globals.Boeing747.doorsystem.cargobulkexport();</script>
+          </binding>
+        </checkbox>
+
+      </group>
+
+    </group>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
       <label>Views</label>
     </text>
 
@@ -101,6 +174,24 @@
        <script>globals.Boeing747.doorsystem.seatexport("copilot");</script>
       </binding>
     </checkbox>
+
+    <text>
+      <label></label>
+    </text>
+
+    <text>
+      <label>Autoland</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Real nav (accurate until 0 ft AGL)</label>
+      <property>/controls/autoflight/real-nav</property>
+      <binding>
+       <command>property-toggle</command>
+       <property>/controls/autoflight/real-nav</property>
+      </binding>
+    </checkbox>
   </group>
 
   <text>
@@ -113,6 +204,7 @@
 
   <group>
     <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
 
     <button>
       <legend>Close</legend>
@@ -123,16 +215,6 @@
       </binding>
     </button>
 
-    <button>
-      <legend>Menu</legend>
-      <key>m</key>
-      <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-menu</dialog-name>
-      </binding>
-      <binding>
-        <command>dialog-close</command>
-      </binding>
-    </button>
+    <empty><stretch>true</stretch></empty>
   </group>
 </PropertyList>

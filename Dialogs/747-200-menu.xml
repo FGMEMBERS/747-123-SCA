@@ -16,18 +16,6 @@
     <empty><stretch>true</stretch></empty>
 
     <button>
-      <legend>Autopilot</legend>
-      <key>a</key>
-      <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-autopilot</dialog-name>
-      </binding>
-      <binding>
-        <command>dialog-close</command>
-      </binding>
-    </button>
-
-    <button>
       <legend>Crew</legend>
       <key>c</key>
       <binding>
@@ -45,30 +33,6 @@
       <binding>
        <command>dialog-show</command>
        <dialog-name>747-200-fuel</dialog-name>
-      </binding>
-      <binding>
-        <command>dialog-close</command>
-      </binding>
-    </button>
-
-    <button>
-      <legend>Ground</legend>
-      <key>g</key>
-      <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-ground</dialog-name>
-      </binding>
-      <binding>
-        <command>dialog-close</command>
-      </binding>
-    </button>
-
-    <button>
-      <legend>Navigation</legend>
-      <key>n</key>
-      <binding>
-       <command>dialog-show</command>
-       <dialog-name>747-200-navigation</dialog-name>
       </binding>
       <binding>
         <command>dialog-close</command>

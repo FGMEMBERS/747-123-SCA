@@ -13,21 +13,21 @@ Seats = {};
 Seats.new = func {
    var obj = { parents : [Seats],
 
-               controls : nil,
-               positions : nil,
-               theseats : nil,
-               theview : nil,
+           controls : nil,
+           positions : nil,
+           theseats : nil,
+           theview : nil,
 
-               lookup : {},
-               names : {},
-               nb_seats : 0,
+           lookup : {},
+           names : {},
+           nb_seats : 0,
 
-               CAPTINDEX : 0,
+           CAPTINDEX : 0,
 
-               floating : {},
-               recoverfloating : constant.FALSE,
-               last_recover : {},
-               initial : {}
+           floating : {},
+           recoverfloating : constant.FALSE,
+           last_recover : {},
+           initial : {}
          };
 
    obj.init();
@@ -390,34 +390,70 @@ Seats.restoreexport = func {
    }
 }
 
-# restore view pitch
-Seats.restorepitchexport = func {
-   var index = getprop("/sim/current-view/view-number");
 
-   if( index == me.CAPTINDEX ) {
-       var headingdeg = me.theviews[index].getNode("config").getChild("heading-offset-deg").getValue();
-       var pitchdeg = me.theviews[index].getNode("config").getChild("pitch-offset-deg").getValue();
+# =====
+# DOORS
+# =====
 
-       setprop("/sim/current-view/heading-offset-deg", headingdeg );
-       setprop("/sim/current-view/pitch-offset-deg", pitchdeg );
+Doors = {};
+
+Doors.new = func {
+   var obj = { parents : [Doors],
+
+           cargodoors : nil,
+
+           seat : SeatRail.new(),
+
+           flightdeck : aircraft.door.new("controls/doors/crew/flightdeck", 8.0),
+           exit : aircraft.door.new("controls/doors/crew/exit", 8.0),
+           cargobulk : aircraft.door.new("controls/doors/cargo/bulk", 12.0),
+           cargoaft : aircraft.door.new("controls/doors/cargo/aft", 12.0),
+           cargoforward : aircraft.door.new("controls/doors/cargo/forward", 12.0)
+         };
+
+   obj.init();
+
+   return obj;
+};
+
+Doors.init = func {
+   me.cargodoors = props.globals.getNode("/controls/doors/cargo");
+}
+
+Doors.amber_cargo_doors = func {
+   var result = constant.FALSE;
+
+   if( me.cargodoors.getNode("forward").getChild("position-norm").getValue() > 0.0 or
+       me.cargodoors.getNode("aft").getChild("position-norm").getValue() > 0.0 or
+       me.cargodoors.getNode("bulk").getChild("position-norm").getValue() > 0.0 ) {
+       result = constant.TRUE;
    }
 
-   # only cockpit views
-   else {
-       var name = "";
+   return result;
+}
 
-       for( var i = 0; i < me.nb_seats; i=i+1 ) {
-            name = me.names[i];
-            if( me.theseats.getChild(name).getValue() ) {
-                var headingdeg = me.theviews[index].getNode("config").getChild("heading-offset-deg").getValue();
-                var pitchdeg = me.theviews[index].getNode("config").getChild("pitch-offset-deg").getValue();
+Doors.seatexport = func( seat ) {
+   me.seat.toggle( seat );
+}
 
-                setprop("/sim/current-view/heading-offset-deg", headingdeg );
-                setprop("/sim/current-view/pitch-offset-deg", pitchdeg );
-                break;
-            }
-        }
-   }
+Doors.flightdeckexport = func {
+   me.flightdeck.toggle();
+}
+
+Doors.exitexport = func {
+   me.exit.toggle();
+}
+
+Doors.cargobulkexport = func {
+   me.cargobulk.toggle();
+}
+
+Doors.cargoaftexport = func {
+   me.cargoaft.toggle();
+}
+
+Doors.cargoforwardexport = func {
+   me.cargoforward.toggle();
 }
 
 
@@ -430,13 +466,10 @@ Menu = {};
 Menu.new = func {
    var obj = { parents : [Menu],
 
-               autopilot : nil,
-               crew : nil,
-               fuel : nil,
-               ground : nil,
-               navigation : nil,
-               radios : nil,
-               menu : nil
+           crew : nil,
+           fuel : nil,
+           radios : nil,
+           menu : nil
          };
 
    obj.init();
@@ -448,16 +481,10 @@ Menu.init = func {
    # B747-200, because property system refuses 747-200
    me.menu = gui.Dialog.new("/sim/gui/dialogs/B747-200/menu/dialog",
                             "Aircraft/747-200/Dialogs/747-200-menu.xml");
-   me.autopilot = gui.Dialog.new("/sim/gui/dialogs/B747-200/autopilot/dialog",
-                                 "Aircraft/747-200/Dialogs/747-200-autopilot.xml");
    me.crew = gui.Dialog.new("/sim/gui/dialogs/B747-200/crew/dialog",
                             "Aircraft/747-200/Dialogs/747-200-crew.xml");
    me.fuel = gui.Dialog.new("/sim/gui/dialogs/B747-200/fuel/dialog",
                             "Aircraft/747-200/Dialogs/747-200-fuel.xml");
-   me.ground = gui.Dialog.new("/sim/gui/dialogs/B747-200/ground/dialog",
-                              "Aircraft/747-200/Dialogs/747-200-ground.xml");
-   me.navigation = gui.Dialog.new("/sim/gui/dialogs/B747-200/navigation/dialog",
-                                  "Aircraft/747-200/Dialogs/747-200-navigation.xml");
    me.radios = gui.Dialog.new("/sim/gui/dialogs/B747-200/radios/dialog",
                             "Aircraft/747-200/Dialogs/747-200-radios.xml");
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- F-80C fuel gauge, by Dave Culp -->
+
+<PropertyList>
+
+ <path>fuel.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>face</object-name>
+  <object-name>needle</object-name>
+<emission>
+	 <red>0.3</red>
+	 <green>0.25</green>
+	 <blue>0.2</blue>
+	 <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>	
+ </emission>
+  </animation>  
+
+<animation>
+  <type>material</type>
+  <object-name>box</object-name>
+<emission>
+	 <red>0.3</red>
+	 <green>0.25</green>
+	 <blue>0.2</blue>
+	 <factor-prop>controls/lighting/panel-norm</factor-prop>	
+ </emission>
+  </animation>  
+
+  <animation>
+  <type>rotate</type>
+  <object-name>needle</object-name>
+  <property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+  <factor>0.00115</factor>
+  <center>
+   <x-m>0.02</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>  
+
+ <animation>
+  <type>material</type>
+  <object-name>lowfuel-light</object-name>
+  <emission>
+    <red>5.0</red>
+    <green>0</green>
+    <blue>0</blue>
+  <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+  </emission>
+ </animation>  
+
+<animation>
+  <type>select</type>
+  <object-name>lowfuel-light</object-name>
+ <condition>
+  <less-than>
+   <property>/fdm/jsbsim/propulsion/total-fuel-lbs</property>
+   <value>1000</value>
+  </less-than>
+ </condition>
+ </animation>  
+
+ <!-- *** LoD *** -->
+ <animation>
+  <type>range</type>
+  <min-m>0</min-m>
+  <max-m>5</max-m>
+ </animation>
+
+</PropertyList>

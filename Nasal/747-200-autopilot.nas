@@ -11,53 +11,53 @@
 Autopilot = {};
 
 Autopilot.new = func {
-   var obj = { parents : [Autopilot,System],
+   var obj = { parents : [Autopilot],
 
-               autothrottlesystem : nil,
+           autothrottlesystem : nil,
 
-               ap : nil,
-               attitude : nil,
-               autoflight : nil,
-               locks : nil,
-               settings : nil,
-               state : nil,
-               waypoints : nil,
+           ap : nil,
+           attitude : nil,
+           autoflight : nil,
+           locks : nil,
+           settings : nil,
+           state : nil,
+           waypoints : nil,
 
-               AUTOPILOTSEC : 1.0,                           # refresh rate
-               AUTOLANDSEC : 1.0,
-               SAFESEC : 1.0,
-               TOUCHSEC : 0.2,
-               FLARESEC : 0.1,
+           AUTOPILOTSEC : 1.0,                           # refresh rate
+           AUTOLANDSEC : 1.0,
+           SAFESEC : 1.0,
+           TOUCHSEC : 0.2,
+           FLARESEC : 0.1,
        
-               LANDINGLB : 630000.0,                          # max landing weight
-               EMPTYLB : 376170.0,                            # empty weight
+           LANDINGLB : 630000.0,                          # max landing weight
+           EMPTYLB : 376170.0,                            # empty weight
 
-               TOUCHDEG : 3.0,                                # landing pitch
-               FLAREDEG : 0.0,                                # avoids rebound by landing pitch
+           TOUCHDEG : 3.0,                                # landing pitch
+           FLAREDEG : 0.0,                                # avoids rebound by landing pitch
 
-               AUTOLANDFEET : 1500.0,
+           AUTOLANDFEET : 1500.0,
 # - instead of 100 ft, as catching glide makes nose down
 # (bug in glide slope, or more sophisticated autopilot is required ?);
-               GLIDEFEET : 250.0,                             # leaves glide slope
+           GLIDEFEET : 250.0,                             # leaves glide slope
 # - nav is supposed accurate until 0 ft.
 # - bypass possible nav errors (example : KJFK 22L, EGLL 27R).
-               NAVFEET : 200.0,                               # leaves nav
+           NAVFEET : 200.0,                               # leaves nav
 # a responsive vertical-speed-with-throttle reduces the rebound by ground effect
-               GROUNDFEET : 20.0,                             # altimeter altitude
+           GROUNDFEET : 20.0,                             # altimeter altitude
 
-               CRUISEKT : 450.0,
-               TRANSITIONKT : 250.0,
-               VREFFULLKT : 154.0,
-               VREFEMPTYKT : 120.0,
+           CRUISEKT : 450.0,
+           TRANSITIONKT : 250.0,
+           VREFFULLKT : 154.0,
+           VREFEMPTYKT : 120.0,
 
-               TOUCHFPM : -750.0,                             # structural limit
- 
-               landheadingdeg : 0.0,                          # touch down without nav
- 
-               ROLLDEG : 2.0,                                 # roll to swap to next waypoint
+           TOUCHFPM : -750.0,                             # structural limit
 
-               WPTNM : 3.0,                                   # distance to swap to next waypoint
-               VORNM : 3.0                                    # distance to inhibate VOR
+           landheadingdeg : 0.0,                          # touch down without nav
+
+           ROLLDEG : 2.0,                                 # roll to swap to next waypoint
+
+           WPTNM : 3.0,                                   # distance to swap to next waypoint
+           VORNM : 3.0                                    # distance to inhibate VOR
          };
 
    obj.init();
@@ -66,8 +66,6 @@ Autopilot.new = func {
 };
 
 Autopilot.init = func {
-   me.inherit_system("/systems/autopilot");
-
    me.ap = props.globals.getNode("/controls/autoflight").getChildren("autopilot");
    me.attitude = props.globals.getNode("/orientation");
    me.autoflight = props.globals.getNode("/controls/autoflight");
@@ -134,58 +132,18 @@ Autopilot.adjustexport = func( sign ) {
 }
 
 Autopilot.schedule = func {
-   var id = ["", "", ""];
-
-
-   # TEMPORARY work around for 2.0.0
-   if( me.route_active() ) {
-       # each time, because the route can change
-       var wp = me.itself["route"].getChildren("wp");
-       var nb_wp = size(wp);
-
-       # route manager doesn't update these fields
-       if( nb_wp >= 1 ) {
-           id[0] = wp[0].getChild("id").getValue();
-       }
-
-       if( nb_wp >= 2 ) {
-           id[1] = wp[1].getChild("id").getValue();
-       }
-
-       if( nb_wp > 0 ) {
-           id[2] = wp[nb_wp-1].getChild("id").getValue();
-       }
-   }
-
-   me.itself["waypoint"][0].getChild("id").setValue( id[0] );
-   me.itself["waypoint"][1].getChild("id").setValue( id[1] );
-   # property is not created at startup
-   me.itself["route-manager"].getNode("wp-last").getNode("id",1).setValue( id[2] );
-
+   var dialdeg = 0.0;
+   var headingdeg = 0.0;
 
    # user adds a waypoint
    if( me.is_waypoint() ) {
-       # real behaviour : INS input doesn't toggle autopilot
-       if( !me.itself["autoflight"].getChild("fg-waypoint").getValue() ) {
-           # keep current heading mode, if any
-           if( !me.is_lock_true() ) {
+       if( me.is_lock_true() ) {
+           # restore current mode
+           if( !me.is_ins() or !me.is_engaged() ) {
                me.aphorizontalexport();
-           }
-
-           # already in true heading mode : keep display coherent
-           elsif( !me.is_ins() ) {
-               me.aptoggleinsexport();
-           }
-       }
-
-       # Feedback requested by user : activation of route toggles autopilot
-       else {
-           if( !me.is_ins() ) {
-               me.aptoggleinsexport();
            }
        }
    }
-
 
    if( me.is_engaged() ) {
        # avoids strong bank
@@ -198,8 +156,8 @@ Autopilot.schedule = func {
 
        # heading changed by keyboard
        elsif( me.is_magnetic() ) {
-           var dialdeg = me.autoflight.getChild("dial-heading-deg").getValue();
-           var headingdeg = me.settings.getChild("heading-bug-deg").getValue();
+           dialdeg = me.autoflight.getChild("dial-heading-deg").getValue();
+           headingdeg = me.settings.getChild("heading-bug-deg").getValue();
            if( headingdeg != dialdeg ) {
                me.autoflight.getChild("dial-heading-deg").setValue(headingdeg);
            }
@@ -605,22 +563,8 @@ Autopilot.is_waypoint = func {
    var id = nil;
    var result = constant.FALSE;
 
-   if( me.route_active() ) {
-       id = me.waypoints[0].getChild("id").getValue();
-       if( id != nil and id != "" ) {
-           result = constant.TRUE;
-       }
-   }
-
-   return result;
-}
-
-Autopilot.route_active = func {
-   var result = constant.FALSE;
-
-   # autopilot/route-manager/wp is updated only once airborne
-   if( me.itself["route-manager"].getChild("active").getValue() and
-       me.itself["route-manager"].getChild("airborne").getValue() ) {
+   id = me.waypoints[0].getChild("id").getValue();
+   if( id != nil and id != "" ) {
        result = constant.TRUE;
    }
 
@@ -750,19 +694,6 @@ Autopilot.is_ins = func {
    }
 
    return result;
-}
-
-Autopilot.aptoggleinsexport = func {
-   if( !me.is_ins() or ( me.is_ins() and !me.is_engaged() ) ) {
-       me.engage(constant.TRUE);
-       me.autoflight.getChild("horizontal-selector").setValue(-2);
-   }
-   else {
-       me.engage(constant.FALSE);
-       me.autoflight.getChild("horizontal-selector").setValue(-1);
-   }
-
-   me.aphorizontalexport();
 }
 
 Autopilot.is_vor = func {

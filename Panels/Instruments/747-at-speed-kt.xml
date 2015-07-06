@@ -8,7 +8,7 @@
 <PropertyList>
 
  <name>Speed setting indicator</name>
- <w-base>150</w-base>
+ <w-base>100</w-base>
  <h-base>150</h-base>
 
  <params>
