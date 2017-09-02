@@ -465,7 +465,7 @@
  <!-- Wing lights -->
  <!-- Asas -->
  <model>
-  <path>Aircraft/747-123-SCA/Models/Lights/Landinglight.xml</path>
+  <path>Aircraft/747-123-SCA/Models/Lights/landinglight.xml</path>
   <offsets>
    <x-m>-2.37431</x-m>
    <y-m>-5.18946</y-m>
@@ -475,7 +475,7 @@
  </model>
 
  <model>
-  <path>Aircraft/747-123-SCA/Models/Lights/Landinglight.xml</path>
+  <path>Aircraft/747-123-SCA/Models/Lights/landinglight.xml</path>
   <offsets>
    <x-m>-2.37431</x-m>
    <y-m> 5.18946</y-m>
